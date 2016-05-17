@@ -1,0 +1,47 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>onlinestore</display-name>
+  <filter>
+  	<filter-name>AuthenticationFilter</filter-name>
+  	<display-name>AuthenticationFilter</display-name>
+  	<description>Authentication Filter to check for valid credentials for accessing the resources</description>
+  	<filter-class>com.wingify.filters.AuthenticationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>AuthenticationFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+  	<servlet-name>AttributeResource</servlet-name>
+  	<display-name>AttributeResource</display-name>
+  	<description>REST based resource to provide various services for Attribute Resource at DB</description>
+  	<servlet-class>com.wingify.resources.AttributeResource</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CategoryResource</servlet-name>
+  	<display-name>CategoryResource</display-name>
+  	<description>Category REST Resource for categoies db</description>
+  	<servlet-class>com.wingify.resources.CategoryResource</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ProductResource</servlet-name>
+  	<display-name>ProductResource</display-name>
+  	<description>Product REST Resource for all the product realted service</description>
+  	<servlet-class>com.wingify.resources.ProductResource</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AttributeResource</servlet-name>
+  	<url-pattern>/attributes/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CategoryResource</servlet-name>
+  	<url-pattern>/categories/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProductResource</servlet-name>
+  	<url-pattern>/products/*</url-pattern>
+  </servlet-mapping>
+</web-app>
